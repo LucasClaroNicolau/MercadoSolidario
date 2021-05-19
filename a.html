@@ -1,0 +1,17 @@
+<div class="md-toolbar-tools">
+        <md-button ng-click=clicked(0)>Início</md-button>
+        <md-button ng-click=clicked(1)>Produtos</md-button>
+        <md-button ng-click=clicked(2)>Familias</md-button>
+        <div>
+          <md-menu>
+            <md-button ng-click="$mdMenu.open()">Relatórios</md-button>
+            <md-menu-content ng-blur="$mdMenu.close()">
+              <md-menu-item>
+                <md-button ng-click=clicked(3)>Produtos</md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button ng-click=clicked(4)>Famílias</md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </div>
