@@ -12,10 +12,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <script src="/static/js/index-controller.js"></script>
+    <script src="/static/js/cadastroFamilia-controller.js"></script>
     <title>Mercado Solidário</title>
 
+<style>
+body{
+    height: 100% !important;
+}
+div.tab-content{
+    max-height:100%;
+}
+
+</style>
 </head>
-<body ng-controller="IndexCtrl">
+<body ng-controller="IndexCtrl" style="margin:0; padding:0; overflow:hidden;">
 
 <div ng-cloak>
   <md-content>
@@ -41,6 +51,6 @@
     </md-toolbar>
   </md-content>
 </div>
-<div flex ng-include="template.url"></div>
+<div ng-include="template.url" style="height: 100% !important;"></div>
 </body>
 </html>

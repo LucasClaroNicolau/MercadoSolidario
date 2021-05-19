@@ -2,26 +2,100 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Produtos</title>
 </head>
-<md-content layout-padding>
-    <h1>Cadastro de Familia</h1>
-</md-content>
-<md-content layout-padding>
-    <div ng-cloak>
-        <md-content>
-            <md-tabs class="md-primary" md-center-tabs>
-                <md-tab label="Geral"></md-tab>
-                <md-tab label="Membros"></md-tab>
-                <md-tab label="Benefícios"></md-tab>
-                <md-tab label="Gastos"></md-tab>
-                <md-tab label="Endereço"></md-tab>
-                <md-tab label="Empregos"></md-tab>
-                <md-tab label="Outros"></md-tab>
-            </md-tabs>
-        </md-content>
+<body>
+    <md-content layout-padding>
+        <h4>Cadastro de Familia</h4>
+    </md-content>
+    <md-content layout-padding>
+        <div ng-cloak>
+            <md-content>
+                <form name="familia" ng-controller="cadastroFamiliaCtrl as ctrl">
+                    <md-tabs class="md-primary" md-dynamic-height>
+
+                        <md-tab label="Geral">
+                            <md-content class="md-padding">
+                                    <div layout-gt-sm="row">
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Nome da Família</label>
+                                            <input name="nomeFamilia" ng-model="nomeFamilia" required>
+                                            <div ng-messages="familia.nomeFamilia.$error">
+                                                <div ng-message="required">Nome da Família é obrigatório.</div>
+                                            </div>
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Telefone</label>
+                                            <input name="telefone" ng-model="telefone" required>
+                                            <div ng-messages="familia.telefone.$error">
+                                                <div ng-message="required">Telefone é obrigatório.</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm="row">
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Religião</label>
+                                            <input name="religiao" ng-model="religiao">
+                                        </md-input-container>
+
+                                        <md-input-container class="md-block" flex-gt-sm>
+                                            <label>Encaminhado Por</label>
+                                            <input name="encaminhadoPor" ng-model="encaminhadoPor" required>
+                                            <div ng-messages="familia.encaminhadoPor.$error">
+                                                <div ng-message="required">Encaminhado Por é obrigatório.</div>
+                                            </div>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout-gt-sm="row">
+                                        <md-select placeholder="Parente Cadastrado" ng-model="parenteCadastrado" md-on-open="loadUsers()" style="width: 100%;">
+                                            <md-option value=""></md-option>
+                                            <md-option ng-value="user" ng-repeat="user in users">//user.name//</md-option>
+                                        </md-select>
+                                    </div>
+                            </md-content>
+                        </md-tab>
+
+                        <md-tab label="Membros">
+                            <md-content class="md-padding">
+                                <div layout-gt-sm="row">
+                                    <md-list flex>
+                                        <md-subheader class="md-no-sticky" layout="row">Lista de Membros</md-subheader>
+                                        <md-button class="md-raised md-primary">ADICIONAR</md-button>
+                                        <md-content flex>
+
+                                            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+                                                <p>Click anywhere to fire the primary action, or the button to fire the secondary</p>
+                                                <md-button class="md-secondary" ng-click="doSecondaryAction($event)">More Info</md-button>
+                                            </md-list-item>
+
+                                            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+                                                <p>Click anywhere to fire the primary action, or the button to fire the secondary</p>
+                                                <md-button class="md-secondary" ng-click="doSecondaryAction($event)">More Info</md-button>
+                                            </md-list-item>
+
+                                            <md-list-item class="secondary-button-padding" ng-click="doPrimaryAction($event)">
+                                                <p>Click anywhere to fire the primary action, or the button to fire the secondary</p>
+                                                <md-button class="md-secondary" ng-click="doSecondaryAction($event)">More Info</md-button>
+                                            </md-list-item>
+
+                                        </md-content>
+                                    </md-list>
+                                </div>
+                            </md-content>
+                        </md-tab>
+
+                        <md-tab label="Benefícios"></md-tab>
+                        <md-tab label="Gastos"></md-tab>
+                        <md-tab label="Endereço"></md-tab>
+                        <md-tab label="Empregos"></md-tab>
+                        <md-tab label="Outros"></md-tab>
+                    </md-tabs>
+                </form>
+            </md-content>
+        </div>
+    </md-content>
     </div>
-</md-content>
-</div>
 </body>
 </html>
